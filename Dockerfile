@@ -1,11 +1,7 @@
-FROM node:lts-alpine
+FROM binaryify/netease_cloud_music_api:latest
 
 WORKDIR /app
 COPY . /app
-
-RUN npm config set registry "https://registry.npm.taobao.org/" \
-    && npm install -g npm husky \
-    && npm install --production
 
 EXPOSE 3000
 CMD ["node", "app.js"]
